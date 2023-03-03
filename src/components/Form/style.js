@@ -14,19 +14,20 @@ const styles = StyleSheet.create({
         paddingBottom: 30,
     },
     formContext: {
-        width:"90%",
+        elevation: 4,
+        width:"87%",
         height:"80%",
-        bottom:0,
+        bottom: 0,
         backgroundColor:"#ffffff",
         alignItems:"center",
-        marginTop:30,
-        marginLeft: 20,
+        marginLeft: 26,
         borderRadius: 8,
+        paddingTop: 0,
     },
     form: {
         width:"100%",
         height: "auto",
-        marginTop: 30,
+        marginTop: 20,
         padding: 10,
     },
     formLabel: {
@@ -48,6 +49,7 @@ const styles = StyleSheet.create({
         flexDirection:'row',
     },
     buttonCalculator:{
+        elevation: 2,
         borderRadius: 10,
         alignItems: "center",
         backgroundColor: "#6CCB94",
@@ -55,7 +57,7 @@ const styles = StyleSheet.create({
         width:"90%",
         paddingBottom: 14,
         paddingTop: 14,
-        marginLeft:12,
+        marginLeft:15,
         margin: 30,
     },
     textbuttonCalculator:{

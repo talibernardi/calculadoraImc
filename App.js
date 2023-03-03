@@ -1,17 +1,29 @@
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import React from 'react';
-import {StyleSheet, View, Image} from 'react-native';
-import { HomeScreen } from './screens/Home';
+import { StyleSheet, View, Text, Image } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 import { Profilescreen } from './screens/Profile';
-import Main from './src/components/Main';
+import HomeScreen from './screens/Home';
+import { Linking } from 'react-native';
+import React from 'react';
+import Form from './src/components/Form';
 
-export default function App() {
- return (
-  <View style={styles.sectionContainer}>
-    <Main/>
-  </View>
- )
+ export default function App() {
+  return (
+    <View style={styles.sectionContainer}>
+      <View>
+        <Image style={styles.imgBeHealthyLogo} source={require('./assets/Img/behealthy-logo.png')}
+          onPress={() => { Linking.openURL('target_blank'); }} />
+        </View>
+     <View style={styles.positionLinkGit}>
+        <Image style={styles.imgGitLogo} source={require('./assets/Img/git-logo.png')} />
+        <Text
+          style={styles.linkGit} onPress={() => 
+                { Linking.openURL('https://github.com/talibernardi'); }}> @talibernardi
+        </Text>
+       </View>
+      <Form />
+    </View>
+  )
 }
 
 const Stack = createNativeStackNavigator();
@@ -29,8 +41,33 @@ function MyStack() {
 
 const styles = StyleSheet.create({
   sectionContainer: {
-    backgroundColor: "#F5F5F5",
-    flex: 1,
+    fontFamily: 'ubuntu',
     marginTop: 32,
+    flex: 1,
+  },
+  imgBeHealthyLogo: {
+    resizeMode: 'stretch',
+    width: 250,
+    height: 50,
+    marginLeft: 20,
+    marginTop: 30,
+  },
+  imgGitLogo: {
+    resizeMode: 'stretch',
+    marginLeft: 20,
+    marginTop: 10,
+    width: 30,
+    height: 30,
+  },
+  linkGit: {
+    paddingTop: 12,
+    color: "#322153",
+    fontWeight: 'bold',
+    paddingLeft: 10,
+  },
+  positionLinkGit: {
+    flexDirection: 'row',
+    flex: 1,
   },
 });
+
