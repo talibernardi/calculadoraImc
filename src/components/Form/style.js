@@ -2,8 +2,16 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     textImc:{
+        textAlign:'center',
+        fontWeight: 'bold',
         color:"#0D114F",
         fontSize: 30,
+    },
+    description:{
+        paddingTop: 20,
+        color: "#A1B2CD",
+        textAlign: 'center',
+        paddingBottom: 30,
     },
     formContext: {
         width:"90%",
@@ -27,13 +35,17 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
     },
     input: {
-        width:"90%",
+        marginLeft: 0,
+        width:"48%",
         borderRadius:10,
         borderWidth:2,
         borderColor: "#A1B2CD",
         height: 60,
         margin: 12,
         paddingLeft: 10,
+    },
+    inputGrid: {
+        flexDirection:'row',
     },
     buttonCalculator:{
         borderRadius: 10,

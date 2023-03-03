@@ -31,15 +31,18 @@ export default function Form(){
      <View style={styles.formContext}>
         <View style={styles.form}>
         <Text style={styles.textImc}>Calculadora de Imc</Text>
-            <Text style={styles.formLabel}>Altura</Text>
-            <TextInput
+        <Text style={styles.description}>
+        O IMC é reconhecido como padrão internacional para avaliar o grau de sobrepeso e obesidade.
+         É calculado dividindo o peso (em kg) pela altura ao quadrado (em metros).
+        </Text>
+        <View style={styles.inputGrid}>
+        <TextInput
             style={styles.input}
             onChangeText={setHeight}
             value={height}
             placeholder="Altura (m)"
             keyboardType="numeric"
             />
-            <Text style={styles.formLabel}>Peso</Text>
             <TextInput
             style={styles.input}
             onChangeText={setWeight}
@@ -47,6 +50,8 @@ export default function Form(){
             placeholder="Peso (Kg)"
             keyboardType="numeric"
             />
+        </View>
+           
             <TouchableOpacity
             style={styles.buttonCalculator}
             onPress={() => {

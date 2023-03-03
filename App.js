@@ -3,14 +3,28 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import {StyleSheet, View, Image} from 'react-native';
 import { HomeScreen } from './screens/Home';
+import { Profilescreen } from './screens/Profile';
 import Main from './src/components/Main';
 
- function mystack() {
+export default function App() {
  return (
   <View style={styles.sectionContainer}>
     <Main/>
   </View>
  )
+}
+
+const Stack = createNativeStackNavigator();
+
+function MyStack() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Profile" component={Profilescreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -20,15 +34,3 @@ const styles = StyleSheet.create({
     marginTop: 32,
   },
 });
-
-const Stack = createNativeStackNavigator();
-
-export default function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
