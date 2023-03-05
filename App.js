@@ -21,7 +21,7 @@ import Form from './src/components/Form';
                 { Linking.openURL('https://github.com/talibernardi'); }}> @talibernardi
         </Text>
        </View>
-      <Form />
+      <MyStack />
     </View>
   )
 }
@@ -31,9 +31,10 @@ const Stack = createNativeStackNavigator();
 function MyStack() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName='Form'>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Profile" component={Profilescreen} />
+        <Stack.Screen name="Form" component={Form} />
       </Stack.Navigator>
     </NavigationContainer>
   );
