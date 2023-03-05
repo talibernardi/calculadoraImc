@@ -5,7 +5,6 @@ import styles from "./style";
 export default function ResultImc(props){
     return(
         <View>
-            <Text style={styles.information}>{props.messageResultImc}</Text>
             <Text style={styles.numberImc}>{props.resultImc}</Text>
         </View>
     );

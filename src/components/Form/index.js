@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import ResultImc from "./ResultImc";
 import styles from "./style";
 
-export default function Form({navigation}) {
+export default function Form({ navigation }) {
     const [height, setHeight] = useState(null)
     const [weight, setWeight] = useState(null)
     const [messageImc, setMessageImc] = useState(null)
@@ -28,7 +28,6 @@ export default function Form({navigation}) {
 
     return (
         <View style={styles.formContext}>
-            
             <View style={styles.form}>
                 <Text style={styles.textImc}>Calculadora de {'\n'} Imc</Text>
                 <Text style={styles.description}>
@@ -51,9 +50,9 @@ export default function Form({navigation}) {
                         keyboardType="numeric"
                     />
                 </View>
-                <Button 
-        title="voltar"
-        onPress={() => navigation.navigate('Profile')}></Button>
+                <Button
+                    title="voltar"
+                    onPress={() => navigation.navigate('Profile')}></Button>
                 <TouchableOpacity
                     style={styles.buttonCalculator}
                     onPress={() => {

@@ -10,13 +10,14 @@ const styles = StyleSheet.create({
     description:{
         paddingTop: 20,
         color: "#A1B2CD",
-        textAlign: 'center',
+        textAlign: 'center', 
         paddingBottom: 30,
     },
     formContext: {
+        marginTop: 50,
         elevation: 4,
         width:"87%",
-        height:"80%",
+        height:"90%",
         bottom: 0,
         backgroundColor:"#ffffff",
         alignItems:"center",

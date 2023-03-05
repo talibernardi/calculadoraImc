@@ -7,34 +7,42 @@ import { Linking } from 'react-native';
 import React from 'react';
 import Form from './src/components/Form';
 
- export default function App() {
+export default function App() {
   return (
     <View style={styles.sectionContainer}>
-      <View>
-        <Image style={styles.imgBeHealthyLogo} source={require('./assets/Img/behealthy-logo.png')}
-          onPress={() => { Linking.openURL('target_blank'); }} />
-        </View>
-     <View style={styles.positionLinkGit}>
-        <Image style={styles.imgGitLogo} source={require('./assets/Img/git-logo.png')} />
-        <Text
-          style={styles.linkGit} onPress={() => 
-                { Linking.openURL('https://github.com/talibernardi'); }}> @talibernardi
-        </Text>
-       </View>
+      <LayoutPage/>
       <MyStack />
     </View>
   )
 }
+
+function LayoutPage() {
+  return (
+    <View>
+      <View>
+        <Image style={styles.imgBeHealthyLogo} source={require('./assets/Img/behealthy-logo.png')}
+          onPress={() => { Linking.openURL('target_blank'); }} />
+      </View>
+      <View style={styles.positionLinkGit}>
+        <Image style={styles.imgGitLogo} source={require('./assets/Img/git-logo.png')} />
+        <Text
+          style={styles.linkGit} onPress={() => { Linking.openURL('https://github.com/talibernardi'); }}> @talibernardi
+        </Text>
+      </View>
+    </View>
+  );
+}
+
 
 const Stack = createNativeStackNavigator();
 
 function MyStack() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Form'>
+      <Stack.Navigator initialRouteName='Form' screenOptions={{ animation: 'none' }}>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Profile" component={Profilescreen} />
-        <Stack.Screen name="Form" component={Form} />
+        <Stack.Screen name="Profile" component={Profilescreen} options={{headerShown: false}}/>
+        <Stack.Screen name="Form" component={Form} options={{headerShown: false}} />
       </Stack.Navigator>
     </NavigationContainer>
   );
