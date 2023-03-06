@@ -19,7 +19,6 @@ export default function Form({ navigation }) {
             imcCalculator()
             setHeight(null)
             setWeight(null)
-            setTextButton("Limpar campos")
             return
         }
         setImc(null)
@@ -44,24 +43,22 @@ export default function Form({ navigation }) {
                     />
                     <TextInput
                         style={styles.input}
+                        autoFocus={true}
                         onChangeText={setHeight}
                         value={height}
                         placeholder="Altura (m)"
                         keyboardType="numeric"
                     />
                 </View>
-                <Button
-                    title="voltar"
-                    onPress={() => navigation.navigate('Profile')}></Button>
                 <TouchableOpacity
                     style={styles.buttonCalculator}
                     onPress={() => {
                         validationImc()
+                        navigation.navigate('Profile', { imc: imc })
                     }}
                 >
                     <Text style={styles.textbuttonCalculator}>{textButtton}</Text>
                 </TouchableOpacity>
-                <ResultImc messageResultImc={messageImc} resultImc={imc} />
             </View>
         </View>
     );
