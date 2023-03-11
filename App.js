@@ -1,17 +1,18 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StyleSheet, View, Text, Image } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { Profilescreen } from './screens/Profile';
-import HomeScreen from './screens/Home';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image
+} from 'react-native';
+import Form from './src/components/Form';
 import { Linking } from 'react-native';
 import React from 'react';
-import Form from './src/components/Form';
 
 export default function App() {
   return (
     <View style={styles.sectionContainer}>
       <LayoutPage/>
-      <MyStack />
+      <Form/>
     </View>
   )
 }
@@ -19,9 +20,9 @@ export default function App() {
 function LayoutPage() {
   return (
     <View>
+      <Image style={styles.bgTop} source={require('./assets/Img/bg-top.png')}></Image>
       <View>
-        <Image style={styles.imgBeHealthyLogo} source={require('./assets/Img/behealthy-logo.png')}
-          onPress={() => { Linking.openURL('target_blank'); }} />
+        <Image style={styles.imgBeHealthyLogo} source={require('./assets/Img/behealthy-logo.png')}/>
       </View>
       <View style={styles.positionLinkGit}>
         <Image style={styles.imgGitLogo} source={require('./assets/Img/git-logo.png')} />
@@ -29,22 +30,10 @@ function LayoutPage() {
           style={styles.linkGit} onPress={() => { Linking.openURL('https://github.com/talibernardi'); }}> @talibernardi
         </Text>
       </View>
+      <View>
+        <Image style={styles.bgBottom} source={require('./assets/Img/bottom-corner.png')}></Image>
+      </View>
     </View>
-  );
-}
-
-
-const Stack = createNativeStackNavigator();
-
-function MyStack() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName='Form' screenOptions={{ animation: 'none' }}>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Profile" component={Profilescreen} options={{headerShown: false}}/>
-        <Stack.Screen name="Form" component={Form} options={{headerShown: false}} />
-      </Stack.Navigator>
-    </NavigationContainer>
   );
 }
 
@@ -59,24 +48,44 @@ const styles = StyleSheet.create({
     width: 250,
     height: 50,
     marginLeft: 20,
-    marginTop: 30,
+    marginTop: -10,
+    marginBottom: 50,
   },
   imgGitLogo: {
     resizeMode: 'stretch',
     marginLeft: 20,
-    marginTop: 10,
+    marginTop: 60,
     width: 30,
     height: 30,
   },
+  bgBottom: {
+    position: 'absolute',
+    resizeMode: 'stretch',
+    width: 150,
+    height: 50,
+    marginTop: 600,
+    marginLeft: -50,
+  },
   linkGit: {
-    paddingTop: 12,
+    paddingTop: 60,
     color: "#322153",
     fontWeight: 'bold',
-    paddingLeft: 10,
+    paddingLeft: 60,
+    position: 'absolute',
   },
   positionLinkGit: {
     flexDirection: 'row',
-    flex: 1,
+    position: 'absolute',
+  },
+  bgTop: {
+    position: 'absolute',
+    resizeMode: 'stretch',
+    width: 150,
+    height: 550,
+    marginTop: -35,
+    marginLeft: 250,
   },
 });
+
+
 
